@@ -1,0 +1,46 @@
+
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+  margin: 0 0 50px;
+  box-shadow: 0 0 7px #555;
+}
+
+.App-main {
+  text-align: center;
+}
+
+.search {
+  max-width: 500px;
+  margin: 0 auto 50px;
+  position: relative;
+}
+.search__button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: #fff;
+  padding: 0;
+  font-size: 20px;
+}
+
+.temp {
+  display: flex;
+  max-width: 960px;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+.temp__item {
+  flex: 1;
+  max-width: 200px;
+}
+
+.box {
+  text-align: center;
+  background: #fff;
+  padding: 60px 40px;
+  font-size: 40px;
+  box-shadow: 0 2px 3px #ccc;
+}

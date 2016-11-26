@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: #333;
+  background: #eee;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+input {
+  background: #fff;
+  box-shadow: 0 2px 3px #ccc;
+  border: none;
+  padding: 15px;
+  padding-right: 40px;
+  width: 100%;
+  font-family: sans-serif;
+  font-size: 20px;
+  color: #444;
+}
