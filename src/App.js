@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Search from './Search';
 import './App.css';
 
 class App extends Component {
@@ -10,10 +11,7 @@ class App extends Component {
         </div>
         <div className="App-main">
 
-          <form className="search">
-            <input />
-            <button className="search__button">🔍</button>
-          </form>
+          <Search />
 
           <div className="temp">
             <div className="temp__item">
