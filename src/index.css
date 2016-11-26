@@ -13,6 +13,11 @@ h1 {
   font-size: 20px;
 }
 
+small {
+  font-size: 12px;
+  color: #777;
+}
+
 input {
   background: #fff;
   box-shadow: 0 2px 3px #ccc;

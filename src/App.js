@@ -1,43 +1,43 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import Search from './Search';
+import Weather from './Weather';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h1>Temperature</h1>
-        </div>
-        <div className="App-main">
+const App = (props) => {
 
-          <Search />
+  const ErrorMessage = props.errorMessage
+    ? <div className="error">{props.errorMessage}</div>
+    : null;
 
-          <div className="temp">
-            <div className="temp__item">
-              <h3>API 1</h3>
-              <div className="box">
-                4°
-              </div>
-            </div>
-            <div className="temp__item">
-              <h3>Average</h3>
-              <div className="box">
-                5°
-              </div>
-            </div>
-            <div className="temp__item">
-              <h3>API 2</h3>
-              <div className="box">
-                6°
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    );
+  let weather = null;
+  if (props.owm || props.yahoo || props.isLoading) {
+    weather = <Weather {...props} />
   }
+
+  return (
+    <div className="App">
+      <div className="App-header">
+        <h1>Temperature</h1>
+      </div>
+      <div className="App-main">
+
+        <Search />
+
+        {ErrorMessage}
+
+        {weather}
+
+      </div>
+    </div>
+  );
 }
 
-export default App;
+
+const mapStateToProps = (state, ownProps) => {
+  return state.weather;
+}
+
+const AppContainer = connect(mapStateToProps)(App);
+
+export default AppContainer;

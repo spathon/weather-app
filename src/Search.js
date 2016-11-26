@@ -14,7 +14,7 @@ let Search = ({ dispatch }) => {
 
   return (
     <form onSubmit={onSubmit} className="search">
-      <input ref={node => { input = node }} />
+      <input placeholder="Enter city" ref={node => { input = node }} />
       <button className="search__button">🔍</button>
     </form>
   );

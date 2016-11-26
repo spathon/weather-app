@@ -9,6 +9,7 @@
 
 .App-main {
   text-align: center;
+  padding: 0 15px;
 }
 
 .search {
@@ -19,7 +20,7 @@
 .search__button {
   position: absolute;
   top: 12px;
-  right: 12px;
+  right: 15px;
   border: none;
   background: #fff;
   padding: 0;
@@ -27,21 +28,47 @@
   cursor: pointer;
 }
 
+.error {
+  color: #911;
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: 3px;
+  padding: 10px;
+  max-width: 500px;
+  margin: 0 auto 30px;
+}
+
 .temp {
   display: flex;
   max-width: 960px;
   margin: 0 auto;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 .temp__item {
-  flex: 1;
-  max-width: 200px;
+  width: 200px;
+  margin: 0 0 20px;
 }
 
 .box {
   text-align: center;
   background: #fff;
   padding: 60px 40px;
+  margin: 0 0 10px;
   font-size: 40px;
   box-shadow: 0 2px 3px #ccc;
+}
+
+.is-loading {
+  font-family: georgia;
+  animation: loading 1s steps(3) infinite;
+  display: inline-block;
+  overflow: hidden;
+  width: 10px;
+}
+
+@keyframes loading {
+  to {
+    width: 50px;
+  }
 }
