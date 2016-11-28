@@ -31,12 +31,12 @@ const App = (props) => {
       </div>
     </div>
   );
-}
+};
 
 
 const mapStateToProps = (state, ownProps) => {
   return state.weather;
-}
+};
 
 const AppContainer = connect(mapStateToProps)(App);
 

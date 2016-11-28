@@ -18,7 +18,7 @@ let Search = ({ dispatch }) => {
       <button className="search__button">🔍</button>
     </form>
   );
-}
+};
 
 Search = connect()(Search);
 

@@ -1,60 +1,39 @@
 import React from 'react';
-
-const getTemp = temp => {
-  if (temp) return Math.round(temp) + '°';
-  return '-';
-}
+import Box from './Box';
 
 let Weather = (props) => {
 
   const data = {
-    owm: {},
-    yahoo: {}
+    owm: { title: 'Open weather map' },
+    avg: { title: 'Average' },
+    yahoo: { title: 'Yahoo weather' }
   };
 
-  const Loading = <div className="is-loading">...</div>;
-
   if (!props.isLoading && props.city) {
-    data.owm = {
-      temp: props.owm.main.temp,
-      city: `${props.owm.name}, ${props.owm.sys.country}`
-    };
-    data.yahoo = props.yahoo ? {
-      temp: props.yahoo.channel.item.condition.temp,
-      city: props.yahoo.channel.item.title
-    } : { temp: null };
-    if (data.owm && data.yahoo) {
-      data.avg = Math.round( (parseFloat(data.owm.temp) + parseFloat(data.yahoo.temp)) / 2 );
+    data.owm.temp = props.owm.main ? props.owm.main.temp : null;
+    data.owm.city = props.owm.sys
+      ? `${props.owm.name}, ${props.owm.sys.country}`
+      : 'No city found';
+
+    data.yahoo.temp = props.yahoo
+      ? parseFloat(props.yahoo.channel.item.condition.temp)
+      : 'No city found';
+    data.yahoo.city = props.yahoo ? props.yahoo.channel.item.title : null;
+
+    if (data.owm.temp !== null && data.yahoo.temp !== null) {
+      data.avg.temp = Math.round( (data.owm.temp + data.yahoo.temp) / 2 );
     } else {
-      data.avg = null;
+      data.avg.temp = null;
     }
   }
 
-
   return (
     <div className="temp">
-      <div className="temp__item">
-        <h3>Open weather map</h3>
-        <div className="box">
-          {props.isLoading ? Loading : getTemp(data.owm.temp)}
-        </div>
-        <small>{data.owm.city}</small>
-      </div>
-      <div className="temp__item">
-        <h3>Average</h3>
-        <div className="box">
-          {props.isLoading ? Loading : getTemp(data.avg)}
-        </div>
-      </div>
-      <div className="temp__item">
-        <h3>Yahoo weather</h3>
-        <div className="box">
-          {props.isLoading ? Loading : getTemp(data.yahoo.temp)}
-        </div>
-        <small>{data.yahoo.city}</small>
-      </div>
+      <Box isLoading={props.isLoading} {...data.owm} />
+      <Box isLoading={props.isLoading} {...data.avg} />
+      <Box isLoading={props.isLoading} {...data.yahoo} />
     </div>
   );
-}
+};
 
 export default Weather;
