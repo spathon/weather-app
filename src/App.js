@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+import { setCity } from './actions'
 import Search from './Search';
 import Weather from './Weather';
 import './App.css';
@@ -15,6 +17,10 @@ export const App = (props) => {
     weather = <Weather {...props} />
   }
 
+  function doSearch(value) {
+    props.dispatch(setCity(value));
+  }
+
   return (
     <div className="App">
       <div className="App-header">
@@ -22,7 +28,7 @@ export const App = (props) => {
       </div>
       <div className="App-main">
 
-        <Search />
+        <Search doSearch={doSearch} />
 
         {ErrorMessage}
 
