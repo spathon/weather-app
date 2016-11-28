@@ -5,6 +5,9 @@ const getTemp = temp => {
   return '-';
 };
 
+// Display the city because the different APIs can show different cities
+// autocomplete on the input could probably fix this
+
 let Box = (props) => {
 
   const Loading = <div className="is-loading">...</div>;

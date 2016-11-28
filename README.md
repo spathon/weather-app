@@ -1,8 +1,17 @@
+# Weather App
+
+Display the current temperature in the submitted city.
+
+Open Weather Map and Yahoo are used to display the temperature and an average of both.
+
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
+
+You need a Open weather map API key to start the app
+`REACT_APP_OWM=[API key] npm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

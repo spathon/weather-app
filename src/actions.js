@@ -1,4 +1,6 @@
 
+// One possibility would be setting an error if a city was not found
+
 export const setCity = (city) => {
 
   const yql = `select item from weather.forecast where woeid in (select woeid from geo.places(1) where text='${city}') and u='c'`;

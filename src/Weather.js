@@ -20,7 +20,7 @@ let Weather = (props) => {
     data.yahoo.temp = props.yahoo
       ? parseFloat(props.yahoo.channel.item.condition.temp)
       : null;
-    data.yahoo.city = props.yahoo 
+    data.yahoo.city = props.yahoo
       ? props.yahoo.channel.item.title
       : 'No city found';
 
