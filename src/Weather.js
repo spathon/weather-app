@@ -10,15 +10,19 @@ let Weather = (props) => {
   };
 
   if (!props.isLoading && props.city) {
-    data.owm.temp = props.owm.main ? props.owm.main.temp : null;
+    data.owm.temp = props.owm.main
+      ? props.owm.main.temp
+      : null;
     data.owm.city = props.owm.sys
       ? `${props.owm.name}, ${props.owm.sys.country}`
       : 'No city found';
 
     data.yahoo.temp = props.yahoo
       ? parseFloat(props.yahoo.channel.item.condition.temp)
+      : null;
+    data.yahoo.city = props.yahoo 
+      ? props.yahoo.channel.item.title
       : 'No city found';
-    data.yahoo.city = props.yahoo ? props.yahoo.channel.item.title : null;
 
     if (data.owm.temp !== null && data.yahoo.temp !== null) {
       data.avg.temp = Math.round( (data.owm.temp + data.yahoo.temp) / 2 );
