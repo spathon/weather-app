@@ -4,6 +4,11 @@ Display the current temperature in the submitted city.
 
 Open Weather Map and Yahoo are used to display the temperature and an average of both.
 
+## About
+
+The project felt like a good opportunity to test [Create React App](https://github.com/facebookincubator/create-react-app)
+to get up and running fast
+
 ## Available Scripts
 
 In the project directory, you can run:
