@@ -4,7 +4,7 @@ import Search from './Search';
 import Weather from './Weather';
 import './App.css';
 
-const App = (props) => {
+export const App = (props) => {
 
   const ErrorMessage = props.errorMessage
     ? <div className="error">{props.errorMessage}</div>
@@ -33,11 +33,6 @@ const App = (props) => {
   );
 };
 
+const mapStateToProps = (state, ownProps) => state;
 
-const mapStateToProps = (state, ownProps) => {
-  return state.weather;
-};
-
-const AppContainer = connect(mapStateToProps)(App);
-
-export default AppContainer;
+export default connect(mapStateToProps)(App);

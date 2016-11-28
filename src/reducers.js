@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux';
-
 const weather = (state = {}, action) => {
   switch (action.type) {
 
@@ -26,8 +24,4 @@ const weather = (state = {}, action) => {
   }
 };
 
-const reducers = combineReducers({
-  weather
-});
-
-export default reducers;
+export default weather;
